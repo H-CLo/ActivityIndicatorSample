@@ -66,6 +66,10 @@ class ViewController: UIViewController {
             // Hello world
         })
     }
+    
+    func testGit_Branch() {
+        print("Hello, this a fuction to test Git branch")
+    }
 
 }
 
