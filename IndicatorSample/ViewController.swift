@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBAction func startIndicator(sender: AnyObject) {
+    @IBAction func startIndicator(_ sender: AnyObject) {
         let uiView = showIndicator(self.view)
-        uiView.hidden = false
+        uiView.isHidden = false
         displayTime(3.0, uiview: uiView)
     }
     override func viewDidLoad() {
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func showIndicator(uiView: UIView) -> UIView {
+    func showIndicator(_ uiView: UIView) -> UIView {
         /* Adding a new UIView to the self*/
         let container: UIView = UIView()
         container.frame = uiView.frame
@@ -34,17 +34,17 @@ class ViewController: UIViewController {
         
         /* Create a view for activityIndicator */
         let loadingView: UIView = UIView()
-        loadingView.frame = CGRectMake(0, 0, 80, 80)
+        loadingView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
         loadingView.center = uiView.center
-        loadingView.backgroundColor = UIColor.brownColor()
+        loadingView.backgroundColor = UIColor.brown
         loadingView.clipsToBounds = true
         loadingView.layer.cornerRadius = 10
         
         /* Create Indicator cotainer */
         let actInd: UIActivityIndicatorView = UIActivityIndicatorView()
-        actInd.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
-        actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
-        actInd.center = CGPointMake(loadingView.frame.size.width / 2, loadingView.frame.size.height / 2)
+        actInd.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0);
+        actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        actInd.center = CGPoint(x: loadingView.frame.size.width / 2, y: loadingView.frame.size.height / 2)
         
         loadingView.addSubview(actInd)
         container.addSubview(loadingView)
@@ -56,13 +56,13 @@ class ViewController: UIViewController {
     }
     
     /* show indicator using the GCD display_after */
-    func displayTime(setime: Double, uiview: UIView) {
+    func displayTime(_ setime: Double, uiview: UIView) {
         let seconds = setime
         let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        let dispatchTime = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
         
-        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            uiview.hidden = true
+        DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
+            uiview.isHidden = true
         })
     }
 

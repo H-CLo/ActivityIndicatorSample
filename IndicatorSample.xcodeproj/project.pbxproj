@@ -97,6 +97,7 @@
 					07FDAA571D854C7C00633209 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = HV7YQRBGLU;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -256,6 +257,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.hungclo.mobile.IndicatorSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -267,6 +269,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.hungclo.mobile.IndicatorSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -289,6 +292,7 @@
 				07FDAA6C1D854C7C00633209 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
