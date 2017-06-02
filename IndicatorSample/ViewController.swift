@@ -65,6 +65,10 @@ class ViewController: UIViewController {
             uiview.isHidden = true
         })
     }
+    
+    func testGit_Branch() {
+        print("Hello, this a fuction to test Git branch")
+    }
 
 }
 
