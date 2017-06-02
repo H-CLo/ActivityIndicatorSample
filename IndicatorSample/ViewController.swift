@@ -70,6 +70,10 @@ class ViewController: UIViewController {
     func testGit_Branch() {
         print("Hello, this a fuction to test Git branch")
     }
+    
+    func testMaster() {
+        print("Hello, this is a function to test master branch")
+    }
 
 }
 
